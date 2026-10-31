@@ -6,7 +6,6 @@ import zoo.ExceptionZoo;
 public class Penguin extends AnimalAbstract{
 	private double height;
 	private String name;
-	private int happiness;
 	private Long ID;
 	private static long idEnum = 0L;
 	public static final int LifeSpan = 6;
@@ -14,15 +13,14 @@ public class Penguin extends AnimalAbstract{
 	public Penguin(String name, int age, double height) throws ExceptionZoo {
 		super(age);
 		this.name = name;
-		this.happiness = 100;
 		this.height = height;
-		if ((height > 200 || height <= 0) && (age < 0 || age > 100)) {
+		if ((height > 200 || height <= 0) && (age < 0 || age > LifeSpan)) {
 			throw new ExceptionZoo("Not Valid Height And Age!",
-					"Height must be: 0 < [height] <= 200!\nAge Must Be Between 0 to 100!");
+					"Height must be: 0 < [height] <= 200!\nAge Must Be Between 0 to " + LifeSpan + "!");
 		} else if (height > 200 || height <= 0) {
 			throw new ExceptionZoo("Not Valid Height", "Height must be: 0 < [height] <= 200!");
-		} else if (age < 0 || age > 100) {
-			throw new ExceptionZoo("Not Valid Age", "Age Must Be Between 0 to 100!");
+		} else if (age < 0 || age > LifeSpan) {
+			throw new ExceptionZoo("Not Valid Age", "Age Must Be Between 0 to " + LifeSpan + "!");
 		}
 		this.ID = ++idEnum;
 
@@ -67,12 +65,5 @@ public class Penguin extends AnimalAbstract{
 		return name;
 	}
 
-	public int getHappiness() {
-		return happiness;
-	}
-
-	public void setHappiness(int happiness) {
-		this.happiness = happiness;
-	}
 
 }

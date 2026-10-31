@@ -3,6 +3,7 @@ package interfaces;
 import java.util.ArrayList;
 import abstract_classes.*;
 import animals.*;
+import enums.EagleTypesEnum;
 import zoo.ExceptionZoo;
 import zoo.Zoo;
 
@@ -92,4 +93,8 @@ public interface ZooInterface {
 	public PenguinsLinkedListInterface getTempPenguinList();
 
 	public ArrayList<FishAbstract> getFishArr();
+
+	public EagleLinkedListInterface getEaglePack(EagleTypesEnum eagleType);
+
+	public CatBinaryTreeInterface getCats();
 }

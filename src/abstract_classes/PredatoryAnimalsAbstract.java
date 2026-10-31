@@ -9,7 +9,6 @@ public abstract class PredatoryAnimalsAbstract extends AnimalAbstract {
 	protected final double MALE_FOOD_MULTIPLIER = 0.02;
 	protected final double FEMALE_FOOD_MULTIPLIER = 0.03;
 	protected int howMuchThePredatorEat;
-	private int happiness;
 	public static final int LifeSpan = 15;
 
 	public PredatoryAnimalsAbstract(String name, boolean gender, double weight, int age) throws ExceptionZoo {
@@ -18,12 +17,12 @@ public abstract class PredatoryAnimalsAbstract extends AnimalAbstract {
 		this.name = name;
 		this.weight = weight;
 		this.howMuchThePredatorEat = howMuchThePredatorEat();
-		this.happiness = 100;
 	}
 
 	@Override
 	public void ageOneYear() {
 		this.age++;
+		this.howMuchThePredatorEat = howMuchThePredatorEat();
 	}
 
 	private int howMuchThePredatorEat() {
@@ -60,14 +59,6 @@ public abstract class PredatoryAnimalsAbstract extends AnimalAbstract {
 
 	public boolean isGender() {
 		return gender;
-	}
-
-	public int getHappiness() {
-		return happiness;
-	}
-
-	public void setHappiness(int happiness) {
-		this.happiness = happiness;
 	}
 
 }

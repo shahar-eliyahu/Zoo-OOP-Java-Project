@@ -117,7 +117,10 @@ public class EagleLinkedListImplamentation implements EagleLinkedListInterface {
 
 	@Override
 	public void removeById(Long id) {
-		if (this.leader != null && this.leader.getEagle().getEagleID().equals(id)) {
+		if (this.leader == null) {
+			return;
+		}
+		if (this.leader.getEagle().getEagleID().equals(id)) {
 			this.leader = this.leader.nextEagle();
 		} else {
 			Node previous = this.leader;
@@ -133,7 +136,10 @@ public class EagleLinkedListImplamentation implements EagleLinkedListInterface {
 
 	@Override
 	public void removeByIndex(int index) {
-		if (this.leader != null && index == 0) {
+		if (this.leader == null) {
+			return;
+		}
+		if (index == 0) {
 			this.leader = this.leader.nextEagle();
 		} else {
 			Node previous = this.leader;

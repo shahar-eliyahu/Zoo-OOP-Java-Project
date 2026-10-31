@@ -12,7 +12,7 @@ public class Lion extends PredatoryAnimalsAbstract implements TrioMethodInterfac
 		super(name, gender, weight, age);
 		if ((weight > 500 || weight <= 0) && (age < 0 || age > LifeSpan)) {
 			throw new ExceptionZoo("Not Valid Weight And Age!",
-					"Height must be: 0 < [weight] <= 500!\nAge Must Be Between 0 to 500!");
+					"Weight must be: 0 < [Weight] <= 500!\nAge Must Be: 0 <= Age <= " + LifeSpan + "!");
 		} else if (weight > 500 || weight <= 0) {
 			throw new ExceptionZoo("Not Valid Weight", "Weight must be: 0 < [Weight] <= " + 500 + "!");
 		} else if (age < 0 || age > LifeSpan) {

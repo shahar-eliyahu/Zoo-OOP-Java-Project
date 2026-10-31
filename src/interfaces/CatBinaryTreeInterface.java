@@ -1,5 +1,6 @@
 package interfaces;
 
+import java.util.List;
 import animals.Cat;
 
 public interface CatBinaryTreeInterface {
@@ -18,4 +19,8 @@ public interface CatBinaryTreeInterface {
 	String printTree();
 
 	void clear();
+
+	List<Cat> getCatsInOrder();
+
+	CatTreeNode getTreeSnapshot();
 }

@@ -9,7 +9,6 @@ import java.util.Random;
 
 public class CatBinaryTree implements CatBinaryTreeInterface{
 	public static Random random = new Random();
-	public List<Cat> catList = new ArrayList<>();
 
 	private class BinaryTreeNode {
 		private Cat cat;
@@ -122,7 +121,6 @@ public class CatBinaryTree implements CatBinaryTreeInterface{
 						+ (node.getCat().getAge() > Cat.LifeSpan ? ("after age: " + (node.getCat().getAge() - 1))
 								: ("at age: " + node.getCat().getAge()))
 						+ ", it was " + (node.getCat().getHappiness() <= 0 ? "SAD!" : "HAPPY") + "\n";
-				catList.add(node.getCat());
 			}
 			removedCat += ageAndRemove(node.getLeft());
 			removedCat += ageAndRemove(node.getRight());
@@ -139,7 +137,7 @@ public class CatBinaryTree implements CatBinaryTreeInterface{
 	private void buildTree(List<Cat> catList) {
 		clear();
 		for (int i = 0; i < catList.size(); i++) {
-			if (catList.get(i).getAge() <= Cat.LifeSpan) {
+			if (catList.get(i).getAge() <= Cat.LifeSpan && catList.get(i).getHappiness() > 0) {
 				add(catList.get(i));
 			}
 		}
@@ -223,5 +221,24 @@ public class CatBinaryTree implements CatBinaryTreeInterface{
 
 	public void clear() {
 		this.root = null;
+	}
+
+	@Override
+	public List<Cat> getCatsInOrder() {
+		List<Cat> ordered = new ArrayList<>();
+		inOrderTraversal(root, ordered);
+		return ordered;
+	}
+
+	@Override
+	public CatTreeNode getTreeSnapshot() {
+		return snapshot(root);
+	}
+
+	private CatTreeNode snapshot(BinaryTreeNode node) {
+		if (node == null) {
+			return null;
+		}
+		return new CatTreeNode(node.getCat(), snapshot(node.getLeft()), snapshot(node.getRight()));
 	}
 }

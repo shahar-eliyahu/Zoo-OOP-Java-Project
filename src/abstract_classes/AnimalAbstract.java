@@ -10,4 +10,12 @@ public abstract class AnimalAbstract implements TrioMethodInterface_ageOneYear_m
 		this.age = age;
 		this.happiness = 100;
 	}
+
+	public int getHappiness() {
+		return happiness;
+	}
+
+	public void setHappiness(int happiness) {
+		this.happiness = happiness;
+	}
 }

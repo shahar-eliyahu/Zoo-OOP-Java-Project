@@ -89,15 +89,15 @@ public class ZooAplication {
 		System.out.println("\t1) Zoo Info.");
 		System.out.println("\t2) See All Penguins.");
 		System.out.println("\t3) Add A New Penguin.");
-		System.out.println("\t4) See All Predetory Animals.");
-		System.out.println("\t5) Add A New Predetory Animals.");
+		System.out.println("\t4) See All Predatory Animals.");
+		System.out.println("\t5) Add A New Predatory Animals.");
 		System.out.println("\t6) See All The Fish In The Aquarium.");
 		System.out.println("\t7) Add Fish To The Aquarium. ");
 		System.out.println("\t8) Feed The Animals.");
 		System.out.println("\t9) Listen To The Animals Voices.");
 		System.out.println("\t10) Move Forward A Year (Next Year).");
 		System.out.println("\t11) Change Penguin Sorting Strategy.");
-		System.out.println("\t12) The New Animals Sectione.");
+		System.out.println("\t12) The New Animals Section.");
 		System.out.println("\tENTER 0 TO EXIT.");
 	}
 
@@ -109,7 +109,7 @@ public class ZooAplication {
 
 	public static void case1_ShowZooStats() {
 		System.out.println("\tZoo Name: " + zoo.getZooName());
-		System.out.println("\tZoo Adress: " + zoo.getZooAddress() + "\n");
+		System.out.println("\tZoo Address: " + zoo.getZooAddress() + "\n");
 		System.out.println("\tLions Amount In The Zoo: " + zoo.getLionsArr().size());
 		System.out.println("\tTigers Amount In The Zoo: " + zoo.getTigersArr().size());
 		System.out.println("\tPenguins Amount In The Zoo: " + zoo.getPenguinHord().countPenguinsInList());
@@ -117,9 +117,9 @@ public class ZooAplication {
 		System.out.println("\t\tAquarium Fish Amount: " + zoo.theNumberOfAquariumFish());
 		System.out.println("\t\tGold Fish Amount: " + zoo.theNumberOfGoldFish());
 		System.out.println("\t\tClown Fish Amount: " + zoo.theNumberOfClownFish());
-		System.out.println("\t\tEagles Amount: " + zoo.howMuchEaglesInTheZoo());
-		System.out.println("\t\tCats Amount: " + zoo.howMuchCatsInTheZoo());
-		System.out.println("\t\tMegaladons Amount: " + zoo.getMegaladon().size());
+		System.out.println("\n\tEagles Amount: " + zoo.howMuchEaglesInTheZoo());
+		System.out.println("\tCats Amount: " + zoo.howMuchCatsInTheZoo());
+		System.out.println("\tMegalodons Amount: " + zoo.getMegaladon().size());
 		System.out.println();
 	}
 
@@ -213,7 +213,7 @@ public class ZooAplication {
 		double weight = getNewPredatorWeight(Lion.MaxWeight);
 		Lion newlion = new Lion(name, gender, weight, age);
 		zoo.addNewLion(newlion);
-		System.out.println("The Lion Entered Succesfully! ");
+		System.out.println("The Lion Entered Successfully! ");
 	}
 
 	public static void AddNewEgleToTheZoo() throws ExceptionZoo {
@@ -225,7 +225,7 @@ public class ZooAplication {
 		int speed = zoo.randomEagleParameters(Eagle.MaxTopSpeed);
 		int altitude = zoo.randomEagleParameters(Eagle.MaxTopAltitude);
 		zoo.addEagle(new Eagle(name, gender, weight, age, speed, altitude, eagleType));
-		System.out.println("The Eagle Entered Succesfully! ");
+		System.out.println("The Eagle Entered Successfully! ");
 	}
 
 	public static EagleTypesEnum getNewEagleEnum() throws ExceptionZoo {
@@ -341,7 +341,7 @@ public class ZooAplication {
 		double weight = getNewPredatorWeight(Tiger.MaxWeight);
 		Tiger newTiger = new Tiger(name, gender, weight, age);
 		zoo.addNewTiger(newTiger);
-		System.out.println("The Tiger Entered Succesfully! ");
+		System.out.println("The Tiger Entered Successfully! ");
 	}
 
 	public static void AddNewCatToTheZoo() throws ExceptionZoo {
@@ -351,7 +351,7 @@ public class ZooAplication {
 		double weight = getNewPredatorWeight(Cat.MaxWeight);
 		Cat newCat = new Cat(name, gender, weight, age);
 		zoo.addNewCat(newCat);
-		System.out.println("The Cat Entered Succesfully! ");
+		System.out.println("The Cat Entered Successfully! ");
 	}
 
 	public static void case6_ShowAllFishInTheZoo() throws InterruptedException {
@@ -408,7 +408,7 @@ public class ZooAplication {
 
 	public static void addFishManue() {
 		System.out.println("Choose The Number Of How To Add A Fish:");
-		System.out.println("\t1) Manualy Enter The Data.");
+		System.out.println("\t1) Manually Enter The Data.");
 		System.out.println("\t2) Randomly Enter The Data By Entering The number Of Fish You Like To Add.");
 	}
 
@@ -434,7 +434,7 @@ public class ZooAplication {
 			System.out.println("Invalid Number Please Enter Again.");
 			age = checkInputStringToInt();
 		}
-		System.out.println("Enter wich color the fish is[Choose one from the below numbers]:");
+		System.out.println("Enter which color the fish is[Choose one from the below numbers]:");
 		System.out.println("\t1) " + FishColorEnum.values()[0]);
 		System.out.println("\t2) " + FishColorEnum.values()[3]);
 		System.out.println("\t3) " + FishColorEnum.values()[5]);
@@ -445,7 +445,7 @@ public class ZooAplication {
 		while (colorChoice != 1 && colorChoice != 2 && colorChoice != 3 && colorChoice != 4) {
 			System.out.println("Enter a Valid Option Number.");
 			System.out.println();
-			System.out.println("Enter wich color the fish is[Choose one from the below numbers]:");
+			System.out.println("Enter which color the fish is[Choose one from the below numbers]:");
 			System.out.println("\t1) " + FishColorEnum.values()[0]);
 			System.out.println("\t2) " + FishColorEnum.values()[3]);
 			System.out.println("\t3) " + FishColorEnum.values()[5]);
@@ -469,7 +469,7 @@ public class ZooAplication {
 			break;
 		}
 		zoo.AddOneNewFishToArr(new GoldFish(age, lengthfish, coloerArr));
-		System.out.println("The Fish Entered Succesfully! ");
+		System.out.println("The Fish Entered Successfully! ");
 	}
 
 	public static void enterManualyClownFish() throws ExceptionZoo {
@@ -487,7 +487,7 @@ public class ZooAplication {
 			age = checkInputStringToInt();
 		}
 		zoo.AddOneNewFishToArr(new ClownFish(age, lengthfish));
-		System.out.println("The Fish Entered Succesfully! ");
+		System.out.println("The Fish Entered Successfully! ");
 
 	}
 
@@ -534,7 +534,7 @@ public class ZooAplication {
 			coloerArr[k] = availibleColoers.get(currentColorNumer - 1);
 			availibleColoers.remove(currentColorNumer - 1);
 		}
-		System.out.println("Enter Which Body Signature The Fish Hava");
+		System.out.println("Enter Which Body Signature The Fish Have");
 		for (int i = 0; i < BodySignatureEnum.values().length; i++) {
 			System.out.println(i + 1 + ") " + BodySignatureEnum.values()[i]);
 		}
@@ -548,7 +548,7 @@ public class ZooAplication {
 		}
 		BodySignatureEnum BodySignature = BodySignatureEnum.values()[BodySignatureEnumNumber - 1];
 		zoo.AddOneNewFishToArr(new AquariumFish(age, lengthfish, coloerArr, BodySignature));
-		System.out.println("The Fish Entered Succesfully! ");
+		System.out.println("The Fish Entered Successfully! ");
 	}
 
 	public static void randomlyEnteredFishDatta() throws ExceptionZoo {
@@ -560,7 +560,7 @@ public class ZooAplication {
 			numberOfFishToAddRandomly = checkInputStringToInt();
 		}
 		zoo.addNumbrOfFish(numberOfFishToAddRandomly);
-		System.out.println("The Fish Entered Succesfully! ");
+		System.out.println("The Fish Entered Successfully! ");
 	}
 
 	public static void case8_FeedAllAnimalInTheZoo() {
@@ -570,12 +570,12 @@ public class ZooAplication {
 		System.out.println(
 				"The Total Amount of Meat In Kilo Grams That The Tigers Ate is: " + zoo.howMuchAllTheTigersEat());
 		System.out.println(
-				"The Total Amount of Food Packeges That The Fish Ate is: " + format.format(zoo.howMuchAllTheFishEat()));
-		System.out.println("The Total Amount of Meat In Kilo Grams That The Tigers Ate is: "
+				"The Total Amount of Food Packages That The Fish Ate is: " + format.format(zoo.howMuchAllTheFishEat()));
+		System.out.println("The Total Amount of Meat In Kilo Grams That The Eagles Ate is: "
 				+ format.format(zoo.totalEagleFood()));
 		System.out.println("All The Cats Together Ate: " + zoo.totalCatsFood() + " Cans/Fish/Steak ");
-		System.out.println("All The Megaladons Together Ate: " + zoo.howMuchTheMegaladonEats()
-				+ "Kg of Meat Of Fish/Giant Animal/Sharcks And More. ");
+		System.out.println("All The Megalodons Together Ate: " + zoo.howMuchTheMegaladonEats()
+				+ "Kg of Meat Of Fish/Giant Animal/Sharks And More. ");
 
 	}
 
@@ -604,13 +604,17 @@ public class ZooAplication {
 		System.out.println("\t2) Sort By Height [the leader(the tallest) first]");
 		System.out.println("\t3) Sort By Age [youngest first]");
 		choicetest = checkInputStringToInt();
+		while (choicetest < 1 || choicetest > 3) {
+			System.out.println("Enter a Valid Option Number (1 - 3).");
+			choicetest = checkInputStringToInt();
+		}
 		zoo.penguinSortWay(choicetest);
 	}
 
 	public static int getNewMegaladonAge() throws ExceptionZoo {
 //		double getAge;
 		int age;
-		System.out.println("Enter Megaladon Age[In Integers 0 - " + Megaladon.LifeSpan + "]:");
+		System.out.println("Enter Megalodon Age[In Integers 0 - " + Megaladon.LifeSpan + "]:");
 		do {
 			age = checkInputStringToInt();
 //			age = (int) getAge;
@@ -624,7 +628,7 @@ public class ZooAplication {
 
 	public static double getNewMegaladonWeight() throws ExceptionZoo {
 		System.out.println(
-				"Enter Megaladon Weight in Tons(" + Megaladon.MinWeight + " < weight <= " + Megaladon.MaxWeight + "):");
+				"Enter Megalodon Weight in Tons(" + Megaladon.MinWeight + " < weight <= " + Megaladon.MaxWeight + "):");
 		double weight = checkInputStringToDouble();
 		while (weight <= Megaladon.MinWeight || weight > Megaladon.MaxWeight) {
 			System.out.println("Incorrect Weight Please Enter Again.");
@@ -635,7 +639,7 @@ public class ZooAplication {
 
 	public static int getNewMegaladonSpeed() throws ExceptionZoo {
 		System.out.println(
-				"Enter Megaladon Speed in KMPH(" + Megaladon.MinSpeed + " < Speed <= " + Megaladon.MaxSpeed + "):");
+				"Enter Megalodon Speed in KMPH(" + Megaladon.MinSpeed + " < Speed <= " + Megaladon.MaxSpeed + "):");
 		int speed = checkInputStringToInt();
 		while (speed <= Megaladon.MinSpeed || speed > Megaladon.MaxSpeed) {
 			System.out.println("Incorrect Speed Please Enter Again.");
@@ -646,7 +650,7 @@ public class ZooAplication {
 
 	public static int getNewMegaladonLength() throws ExceptionZoo {
 		System.out.println(
-				"Enter Megaladon Length in kg(" + Megaladon.MinLength + " < Length <= " + Megaladon.MaxLength + "):");
+				"Enter Megalodon Length in meters(" + Megaladon.MinLength + " < Length <= " + Megaladon.MaxLength + "):");
 		int length = checkInputStringToInt();
 		while (length <= Megaladon.MinLength || length > Megaladon.MaxLength) {
 			System.out.println("Incorrect Length Please Enter Again.");
@@ -663,7 +667,7 @@ public class ZooAplication {
 		double weight = getNewMegaladonWeight();
 		Megaladon Megaladon = new Megaladon(age, length, name, weight, speed);
 		zoo.addMegaladon(Megaladon);
-		System.out.println("The Megaladon Entered Succesfully! ");
+		System.out.println("The Megalodon Entered Successfully! ");
 	}
 
 	public static void case12_NewAnimals() throws ExceptionZoo, InterruptedException {
@@ -675,9 +679,9 @@ public class ZooAplication {
 			System.out.println("\t2) Add An Eagle");
 			System.out.println("\t3) See All Cats");
 			System.out.println("\t4) Add A Cat");
-			System.out.println("\t5) See All Megaladon");
-			System.out.println("\t6) Add An Megaladon");
-			System.out.println("Enter 0 to get back to the main maneu.");
+			System.out.println("\t5) See All Megalodons");
+			System.out.println("\t6) Add A Megalodon");
+			System.out.println("Enter 0 to get back to the main menu.");
 
 			newAnimalChoice = checkInputStringToInt();
 			switch (newAnimalChoice) {
@@ -713,7 +717,7 @@ public class ZooAplication {
 				break;
 			default:
 				if (newAnimalChoice == 0) {
-					System.out.println("MAIN MANEU");
+					System.out.println("MAIN MENU");
 				} else {
 					System.out.println("Enter a Valid Option Number.");
 					System.out.println();

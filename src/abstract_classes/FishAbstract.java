@@ -10,12 +10,10 @@ public abstract class FishAbstract extends AnimalAbstract {
 	protected BodySignatureEnum signature;
 	protected double howMuchTheFishEat;
 	public DecimalFormat formatter = new DecimalFormat("#0.00");
-	protected int happiness;
 
 	public FishAbstract(int age, double length) {
 		super(age);
 		this.length = length;
-		this.happiness = 100;
 	}
 
 	@Override
@@ -56,14 +54,6 @@ public abstract class FishAbstract extends AnimalAbstract {
 
 	public BodySignatureEnum getSignature() {
 		return signature;
-	}
-
-	public int getHappiness() {
-		return happiness;
-	}
-
-	public void setHappiness(int happiness) {
-		this.happiness = happiness;
 	}
 
 }

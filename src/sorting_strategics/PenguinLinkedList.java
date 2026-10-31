@@ -175,7 +175,10 @@ public class PenguinLinkedList implements PenguinsLinkedListInterface {
 
 	@Override
 	public void removeByIndex(int index) {
-		if (this.leader != null && index == 0) {
+		if (this.leader == null) {
+			return;
+		}
+		if (index == 0) {
 			this.leader = this.leader.nextPenguin();
 		} else {
 			Node previous = this.leader;

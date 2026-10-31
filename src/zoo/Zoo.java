@@ -195,11 +195,14 @@ public class Zoo implements ZooInterface{
 		for (int i = 0; i < tempResortEaglePack.countEaglesInList(); i++) {
 			addEagle(tempResortEaglePack.findByIndex(i));
 		}
-		tempPenguinList.clear();
+		tempResortEaglePack.clear();
 	}
 
 //	this function gets the way of sorting and sorts the penguins by the information
 	public void penguinSortWay(int sortFormPenguin) {
+		if (sortFormPenguin < 1 || sortFormPenguin > 3) {
+			return; // only 1 (name), 2 (height) and 3 (age) are valid strategies
+		}
 		this.sortFormPenguin = sortFormPenguin;
 		this.tempPenguinList = new PenguinLinkedList();
 		tempPenguinList = penguinHord.copy();
@@ -363,24 +366,19 @@ public class Zoo implements ZooInterface{
 //		this function running on the fish array like a cube: we comparing 1 color to all the fish than move to the next color 
 	public String returnStringOfAllColorFish() {
 		String allColorFish = "";
-		int num = 0;
-		@SuppressWarnings("unused")
-		FishColorEnum currentColor;
-
-		while (num <= 9) {
-			currentColor = FishColorEnum.values()[num];
-			for (int i = 0; i < fishArr.size(); i++) {
-				for (int j = 0; j < fishArr.get(i).getColor().length && num <= 9; j++) {
-					if (fishArr.get(i).getColor()[j] == FishColorEnum.values()[num]) {
-						allColorFish += FishColorEnum.values()[num];
-						allColorFish += "\n";
-						num++;
-						i = 0;
-						j = 0;
+		for (FishColorEnum currentColor : FishColorEnum.values()) {
+			boolean foundColor = false;
+			for (int i = 0; i < fishArr.size() && !foundColor; i++) {
+				for (FishColorEnum fishColor : fishArr.get(i).getColor()) {
+					if (fishColor == currentColor) {
+						foundColor = true;
+						break;
 					}
 				}
 			}
-			num++;
+			if (foundColor) {
+				allColorFish += currentColor + "\n";
+			}
 		}
 
 		return allColorFish + "\n" + returnStringOfDominantColorFish();
@@ -567,7 +565,7 @@ public class Zoo implements ZooInterface{
 		deadAnimals += "Golden Eagles:\n" + ageOneYearEagles(goldenEaglePack) + "\n";
 		deadAnimals += "Black Eagles:\n" + ageOneYearEagles(blackEaglePack) + "\n";
 		deadAnimals += "Cats:\n" + cats.ageCatOneYear() + "\n";
-		deadAnimals += "Megalagons:\n" + ageOneYearMegalagon() + "\n";
+		deadAnimals += "Megalodons:\n" + ageOneYearMegalagon() + "\n";
 		deadAnimals += "Number of Fish that were removed: " + ageOneYearFish() + "\n";
 		return deadAnimals;
 	}
@@ -576,7 +574,7 @@ public class Zoo implements ZooInterface{
 		int randomHappinessDecrease;
 		boolean removedAnimal = false;
 		String deadAnimals = "";
-		if (this.megaladon.size() > 0 && megaladon != null) {
+		if (megaladon != null && megaladon.size() > 0) {
 			for (int i = 0; i < megaladon.size(); i++) {
 				megaladon.get(i).ageOneYear();
 				randomHappinessDecrease = random.nextInt(Megaladon.LifeSpan / 4);
@@ -638,7 +636,7 @@ public class Zoo implements ZooInterface{
 		int randomHappinessDecrease;
 		boolean removedAnimal = false;
 		String deadAnimals = "";
-		if (lionArr.size() > 0 && lionArr != null) {
+		if (lionArr != null && lionArr.size() > 0) {
 			for (int i = 0; i < lionArr.size(); i++) {
 				lionArr.get(i).ageOneYear();
 				randomHappinessDecrease = random.nextInt(PredatoryAnimalsAbstract.LifeSpan * 2);
@@ -666,7 +664,7 @@ public class Zoo implements ZooInterface{
 		int randomHappinessDecrease;
 		boolean removedAnimal = false;
 		String deadAnimals = "";
-		if (tigerArr.size() > 0 && tigerArr != null) {
+		if (tigerArr != null && tigerArr.size() > 0) {
 			for (int i = 0; i < tigerArr.size(); i++) {
 				tigerArr.get(i).ageOneYear();
 				randomHappinessDecrease = random.nextInt(PredatoryAnimalsAbstract.LifeSpan);
@@ -733,7 +731,7 @@ public class Zoo implements ZooInterface{
 	private int ageOneYearFish() {
 		int randomHappinessDecrease;
 		int deadAnimals = 0;
-		if (fishArr.size() > 0 && fishArr != null) {
+		if (fishArr != null && fishArr.size() > 0) {
 			for (int i = 0; i < fishArr.size(); i++) {
 				FishAbstract currentFish = fishArr.get(i);
 				fishArr.get(i).ageOneYear();
@@ -800,6 +798,21 @@ public class Zoo implements ZooInterface{
 
 	public ArrayList<FishAbstract> getFishArr() {
 		return fishArr;
+	}
+
+	public EagleLinkedListInterface getEaglePack(EagleTypesEnum eagleType) {
+		switch (eagleType) {
+		case BALD:
+			return baldEaglePack;
+		case GOLDEN:
+			return goldenEaglePack;
+		default:
+			return blackEaglePack;
+		}
+	}
+
+	public CatBinaryTreeInterface getCats() {
+		return cats;
 	}
 
 }

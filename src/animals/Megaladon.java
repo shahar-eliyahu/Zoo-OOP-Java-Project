@@ -16,7 +16,6 @@ public class Megaladon extends AnimalAbstract {
 	private final int PowerOfBite = 182200; // in Newtons
 	private int speed;
 	private int length;
-	private int happiness;
 
 	public Megaladon(int age, int length, String name, double weight, int speed) {
 		super(age);
@@ -24,16 +23,8 @@ public class Megaladon extends AnimalAbstract {
 		this.name = name;
 		this.weight = weight;
 		this.speed = speed;
-		this.happiness = 100;
 	}
 
-	public int getHappiness() {
-		return happiness;
-	}
-
-	public void setHappiness(int happiness) {
-		this.happiness = happiness;
-	}
 
 	public String getName() {
 		return name;
@@ -72,12 +63,12 @@ public class Megaladon extends AnimalAbstract {
 
 	@Override
 	public String makeNoise() {
-		return "RAAAAAAAA!!!!!!!{scary soundes...people and other animals try to escape}";
+		return "RAAAAAAAA!!!!!!!{scary sounds...people and other animals try to escape}";
 	}
 
 	@Override
 	public String toString() {
-		return "Animal Type: MEGALADON [name = " + name + ", weight = " + weight + " Tons , PowerOfBite = "
+		return "Animal Type: MEGALODON [name = " + name + ", weight = " + weight + " Tons , PowerOfBite = "
 				+ PowerOfBite + ", speed = " + speed + ", age = " + age + ", length = " + length + " happiness level: "
 				+ happiness + " ]";
 	}
