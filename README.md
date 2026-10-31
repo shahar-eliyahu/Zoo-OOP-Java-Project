@@ -2,8 +2,7 @@
 
 A Java zoo simulation built around **object-oriented design**: class hierarchies, interfaces, polymorphism, enums, custom comparators and hand-written data structures. Developed as the final project of an Object-Oriented Programming course, and later extended with a **Swing dashboard**.
 
-![Dashboard overview](<img width="1380" height="900" alt="01-overview" src="https://github.com/user-attachments/assets/ad4b2ca4-c1ba-4d6c-a581-c4846657f9b0" />
-)
+![Dashboard overview](docs/screenshots/01-overview.png)
 
 ---
 
